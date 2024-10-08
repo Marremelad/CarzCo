@@ -24,7 +24,8 @@ public abstract class Manager
     {
         foreach (var vehicle in _vehicles)
         {
-            Console.WriteLine($"{vehicle.Make} {vehicle.Model} - Fuel Type: {vehicle.FuelType}, Max Velocity: {vehicle.MaxSpeed} km/h");
+            Console.WriteLine($"{vehicle.Make} {vehicle.Model} - Fuel Type:" +
+                              $" {vehicle.FuelType}, Max Velocity: {vehicle.MaxSpeed} km/h");
         }
     }
 
