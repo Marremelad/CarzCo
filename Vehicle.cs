@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarzCo
 {
-    public abstract class Vehicle
+    public abstract class Vehicle : IDrivable
     {
     public string Model { get; set; }
     public string Make { get; set; }
@@ -15,5 +15,6 @@ namespace CarzCo
             Make = make;
             Model = model;
         }
+    public  abstract void Drive();
     }
 }
