@@ -3,17 +3,37 @@
 // Vehicles class.
 public abstract class Vehicle : IDrivable
 {
+    private static int _id;
+
+    public int VehicleId { get; set; }
     public string Model { get; set; }
     public string Make { get; set; }
+
+    // public string RegNumber { get; set; }
     public string FuelType { get; set; }
     public int MaxSpeed { get; set; }
     internal Vehicle(string make, string model, string fuelType, int maxSpeed)
     {
+        VehicleId = _id;
+        _id++;
+        
         Make = make;
         Model = model;
         FuelType = fuelType;
         MaxSpeed = maxSpeed;
     }
+
+    // private string GenerateRegNumber()
+    // {
+    //     string regNumber = "";
+    //     for (int i = 0; i < 7; i++)
+    //     {
+    //         if (i < 3)
+    //         {
+    //             regNumber += new Random().Next();
+    //         }
+    //     }
+    // }
     public  abstract void Drive();
 }
 
