@@ -10,10 +10,11 @@ namespace CarzCo
     {
     public string Model { get; set; }
     public string Make { get; set; }
-        internal Vehicle(string model, string make)
+        internal Vehicle(string make, string model)
         {
-            Model = model;
             Make = make;
+            Model = model;
+            
         }
     }
 }
