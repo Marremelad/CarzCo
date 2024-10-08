@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CarzCo
 {
-    public class Car : Vehicle, IDrivable
+    public class Car : Vehicle
     {
         public int Doors { get; set; }
-        public Car(string model, string make, int doors) : base(model, make) {
+        public Car(string make, string model, int doors) : base(make, model) {
             Doors = doors;
         }
-        public void Drive()
+        public override void Drive()
         {
             Console.WriteLine($"The car is driving.");
         }
