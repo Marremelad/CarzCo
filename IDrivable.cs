@@ -2,5 +2,5 @@
 
 public interface IDrivable
 {
-    
+    public void Drive();
 }
