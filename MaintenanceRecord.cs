@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CarzCo
 {
-    internal class MaintenanceRecord
+    public class MaintenanceRecord
     {
         public readonly int ID;
         public ServiceType ServiceType { get; set; }
