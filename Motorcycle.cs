@@ -15,6 +15,6 @@ public class Motorcycle : Vehicle
     }
     public override string ToString()
     {
-        return $"Model: {Model},  Make: {Make},  Has sidecart: {HasSideCart}.";
+        return $"Make: {Make},  Model: {Model}, Has sidecart: {HasSideCart}.";
     }
 }

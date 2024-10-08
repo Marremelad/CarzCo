@@ -18,7 +18,7 @@ namespace CarzCo
         }
         public override string ToString()
         {
-            return $"Model: {Model},  Make: {Make},  Doors: {Doors}.";
+            return $"Make: {Make},  Model: {Model},  Doors: {Doors}.";
         }
     }
 }

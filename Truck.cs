@@ -15,6 +15,6 @@ public class Truck : Vehicle
     }
     public override string ToString()
     {
-        return $"Model: {Model},  Make: {Make},  Axels: {NumberOfAxels}.";
+        return $"Make: {Make},  Model: {Model},  Axels: {NumberOfAxels}.";
     }
 }
