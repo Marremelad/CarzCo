@@ -9,4 +9,12 @@ public class Motorcycle : Vehicle
     {
         HasSideCart = hasSideCart;
     }
+    public override void Drive()
+    {
+        Console.WriteLine($"The motorcycle is driving.");
+    }
+    public override string ToString()
+    {
+        return $"Model: {Model},  Make: {Make},  Has sidecart: {HasSideCart}.";
+    }
 }

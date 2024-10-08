@@ -9,4 +9,12 @@ public class Truck : Vehicle
     {
         NumberOfAxels = numberOfAxels;
     }
+    public override void Drive()
+    {
+        Console.WriteLine($"The truck is driving.");
+    }
+    public override string ToString()
+    {
+        return $"Model: {Model},  Make: {Make},  Axels: {NumberOfAxels}.";
+    }
 }
