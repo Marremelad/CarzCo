@@ -4,16 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Vehicle> listOfVehicles =
-        [
-            new Car("Honda", "Civic", 4, FuelType.Bensin, 500),
-            new Car("Honda", "Civic", 4, FuelType.Diesel, 500),
-            new Car("Honda", "Civic", 4, FuelType.Ethanol, 500)
-        ];
+        Car car = new Car("Toyota", "Supra", 4, FuelType.Bensin, 500);
 
-        foreach (var vehicle in listOfVehicles)
-        {
-            Console.WriteLine(vehicle.VehicleId);
-        }
+        MaintenanceRecord service = new MaintenanceRecord(car.VehicleId, ServiceType.Oil);
+        
+        Manager.AddService(service);
+        Manager.DisplayService(car.VehicleId);
+
+
     }
 }
