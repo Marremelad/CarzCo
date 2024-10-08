@@ -10,7 +10,5 @@ class Program
         
         Manager.AddService(service);
         Manager.DisplayService(car.VehicleId);
-
-
     }
 }
