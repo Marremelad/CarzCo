@@ -1,4 +1,6 @@
-﻿namespace CarzCo;
+﻿using System.Xml.Serialization;
+
+namespace CarzCo;
 
 public abstract class Manager
 {
@@ -28,6 +30,11 @@ public abstract class Manager
 
     public static void AddService(MaintenanceRecord service)
     {
-        
+        _maintenanceRecords.Add(service.Id, service);
+    }
+
+    public static void DisplayService(int vehicleId)
+    {
+        Console.WriteLine(_maintenanceRecords[vehicleId]);
     }
 }
