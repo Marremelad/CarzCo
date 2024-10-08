@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace CarzCo
 {
-    internal class MaintenanceRecord
+    public class MaintenanceRecord
     {
-        public int ServiceType { get; set; }
-        public int MyProperty1 { get; set; }
-        public int MyProperty2 { get; set; }
+        public readonly int ID;
+        public ServiceType ServiceType { get; set; }
+        public DateTime Date = DateTime.Today;
+        internal MaintenanceRecord(int id, ServiceType servicetype) {
+            ID = id;
+            ServiceType = servicetype;
+        }    
     }
 }
