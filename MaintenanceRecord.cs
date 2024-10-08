@@ -8,11 +8,11 @@ namespace CarzCo
 {
     public class MaintenanceRecord
     {
-        public readonly int ID;
+        public readonly int Id;
         public ServiceType ServiceType { get; set; }
         public DateTime Date = DateTime.Today;
         internal MaintenanceRecord(int id, ServiceType servicetype) {
-            ID = id;
+            Id = id;
             ServiceType = servicetype;
         }    
     }
