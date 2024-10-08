@@ -4,16 +4,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Car car = new Car("Honda", "Civic", 4, "Petrol", 500);
-
         List<Vehicle> listOfVehicles =
         [
-            new Car("Honda", "Civic", 4, "Petrol", 500),
-            new Car("Honda", "Civic", 4, "Petrol", 500),
-            new Car("Honda", "Civic", 4, "Petrol", 500)
+            new Car("Honda", "Civic", 4, FuelType.Bensin, 500),
+            new Car("Honda", "Civic", 4, FuelType.Diesel, 500),
+            new Car("Honda", "Civic", 4, FuelType.Ethanol, 500)
         ];
-        
-        Manager.AddVehicle(listOfVehicles);
-        Manager.DisplayVehicles();
+
+        foreach (var vehicle in listOfVehicles)
+        {
+            Console.WriteLine(vehicle.VehicleId);
+        }
     }
 }
