@@ -10,11 +10,15 @@ namespace CarzCo
     {
     public string Model { get; set; }
     public string Make { get; set; }
-        internal Vehicle(string make, string model)
+    public string FuelType { get; set; }
+    public int MaxSpeed { get; set; }
+        internal Vehicle(string make, string model, string fuelType, int maxSpeed)
         {
             Make = make;
             Model = model;
+            FuelType = fuelType;
+            MaxSpeed = maxSpeed;
         }
-    public  abstract void Drive();
+        public  abstract void Drive();
     }
 }

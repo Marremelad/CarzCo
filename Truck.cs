@@ -4,8 +4,8 @@ public class Truck : Vehicle
 {
     public int NumberOfAxels { get; set; }
 
-    public Truck(string make, string model, int numberOfAxels) :
-        base(make, model)
+    public Truck(string make, string model, int numberOfAxels, string fuelType, int maxSpeed) :
+        base(make, model, fuelType, maxSpeed)
     {
         NumberOfAxels = numberOfAxels;
     }

@@ -9,7 +9,8 @@ namespace CarzCo
     public class Car : Vehicle
     {
         public int Doors { get; set; }
-        public Car(string make, string model, int doors) : base(make, model) {
+        public Car(string make, string model, int doors, string fuelType, int maxSpeed) : 
+            base(make, model, fuelType, maxSpeed) {
             Doors = doors;
         }
         public override void Drive()

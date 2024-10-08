@@ -10,8 +10,8 @@ namespace CarzCo
     {
         public int PassengerCapacity { get; set; }
 
-        public Boat(string make, string model, int passengerCapacity) :
-            base(make, model)
+        public Boat(string make, string model, int passengerCapacity ,string fuelType, int maxSpeed) :
+            base(make, model, fuelType, maxSpeed)
         {
             PassengerCapacity = passengerCapacity;
         }

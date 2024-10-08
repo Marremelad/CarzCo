@@ -4,8 +4,8 @@ public class Motorcycle : Vehicle
 {
     public bool HasSideCart { get; set; }
 
-    public Motorcycle(string make, string model, bool hasSideCart) :
-        base(make, model)
+    public Motorcycle(string make, string model, bool hasSideCart, string fuelType, int maxSpeed) :
+        base(make, model, fuelType, maxSpeed)
     {
         HasSideCart = hasSideCart;
     }

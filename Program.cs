@@ -4,15 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Skapa en lista för att lagra fordon
-        List<Vehicle> vehicles = new List<Vehicle>();
-
         // Lägg till några fordon
-        vehicles.Add(new Car("Volvo", "V60", 5));
-        vehicles.Add(new Motorcycle("Harley-Davidson", "Street 750", false));
-        vehicles.Add(new Truck("Scania", "R500", 3));
-        vehicles.Add(new Car("Toyota", "Corolla", 4));
-
+        List<Vehicle> vehicles = new List<Vehicle>
+    {
+        new Car("Volvo", "V60", 5, "Diesel", 200),
+        new Motorcycle("Harley-Davidson", "Street 750", false, "Bensin", 180),
+        new Truck("Scania", "R500", 3, "Diesel", 160),
+        new Bus("Mercedes", "Citaro", 40, "Hybrid", 100),
+        new Boat("Yamaha", "242X", 8, "Bensin", 45)
+    };
         // Skriv ut alla fordon
         Console.WriteLine("Alla fordon:");
         foreach (var vehicle in vehicles)
