@@ -14,7 +14,6 @@ namespace CarzCo
         {
             Make = make;
             Model = model;
-            
         }
     }
 }
