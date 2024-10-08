@@ -8,11 +8,9 @@ public abstract class Vehicle : IDrivable
     public int VehicleId { get; set; }
     public string Model { get; set; }
     public string Make { get; set; }
-
-    // public string RegNumber { get; set; }
-    public string FuelType { get; set; }
+    public FuelType FuelType { get; set; }
     public int MaxSpeed { get; set; }
-    internal Vehicle(string make, string model, string fuelType, int maxSpeed)
+    internal Vehicle(string make, string model, FuelType fuelType, int maxSpeed)
     {
         VehicleId = _id;
         _id++;
@@ -41,7 +39,7 @@ public abstract class Vehicle : IDrivable
 public class Car : Vehicle
 {
     public int Doors { get; set; }
-    public Car(string make, string model, int doors, string fuelType, int maxSpeed) : 
+    public Car(string make, string model, int doors, FuelType fuelType, int maxSpeed) : 
         base(make, model, fuelType, maxSpeed) {
         Doors = doors;
     }
@@ -60,7 +58,7 @@ public class Motorcycle : Vehicle
 {
     public bool HasSideCart { get; set; }
 
-    public Motorcycle(string make, string model, bool hasSideCart, string fuelType, int maxSpeed) :
+    public Motorcycle(string make, string model, bool hasSideCart, FuelType fuelType, int maxSpeed) :
         base(make, model, fuelType, maxSpeed)
     {
         HasSideCart = hasSideCart;
@@ -80,7 +78,7 @@ public class Truck : Vehicle
 {
     public int NumberOfAxels { get; set; }
 
-    public Truck(string make, string model, int numberOfAxels, string fuelType, int maxSpeed) :
+    public Truck(string make, string model, int numberOfAxels, FuelType fuelType, int maxSpeed) :
         base(make, model, fuelType, maxSpeed)
     {
         NumberOfAxels = numberOfAxels;
@@ -100,7 +98,7 @@ public class Bus : Vehicle
 {
     public int PassengerCapacity { get; set; }
 
-    public Bus(string make, string model, int passengerCapacity, string fuelType, int maxSpeed) :
+    public Bus(string make, string model, int passengerCapacity, FuelType fuelType, int maxSpeed) :
         base(make, model, fuelType, maxSpeed)
     {
         PassengerCapacity = passengerCapacity;
@@ -120,7 +118,7 @@ public class Boat : Vehicle
 {
     public int PassengerCapacity { get; set; }
 
-    public Boat(string make, string model, int passengerCapacity ,string fuelType, int maxSpeed) :
+    public Boat(string make, string model, int passengerCapacity, FuelType fuelType, int maxSpeed) :
         base(make, model, fuelType, maxSpeed)
     {
         PassengerCapacity = passengerCapacity;
