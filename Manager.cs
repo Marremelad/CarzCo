@@ -36,7 +36,8 @@ public abstract class Manager
     public static void DisplayService(int vehicleId)
     {
         
-        Console.WriteLine($"Vehicle Id: {_maintenanceRecords[vehicleId].Id}\nService Type: {_maintenanceRecords[vehicleId].ServiceType}\n" +
-                          $"Date: {_maintenanceRecords[vehicleId].Date:d}\n");
+        Console.WriteLine($"Vehicle Id: {_maintenanceRecords[vehicleId].Id}\n" +
+                          $"Service Type: {_maintenanceRecords[vehicleId].ServiceType}\n" +
+                          $"Date: {_maintenanceRecords[vehicleId].Date:d}");
     }
 }
