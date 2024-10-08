@@ -3,7 +3,7 @@
 public abstract class Manager
 {
     private static List<Vehicle> _vehicles = new List<Vehicle>();
-
+    private static Dictionary<int, MaintenanceRecord> _maintenanceRecords = new Dictionary<int, MaintenanceRecord>();
 
     public static void AddVehicle(Vehicle vehicle)
     {
@@ -24,5 +24,10 @@ public abstract class Manager
         {
             Console.WriteLine($"{vehicle.Make} {vehicle.Model} - Fuel Type: {vehicle.FuelType}, Max Velocity: {vehicle.MaxSpeed} km/h");
         }
+    }
+
+    public static void AddService(MaintenanceRecord service)
+    {
+        
     }
 }
