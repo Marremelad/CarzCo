@@ -1,6 +1,4 @@
-﻿using System.Xml.Serialization;
-
-namespace CarzCo;
+﻿namespace CarzCo;
 
 public abstract class Manager
 {
