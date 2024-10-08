@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Lägg till några fordon
         List<Vehicle> vehicles = new List<Vehicle>
     {
         new Car("Volvo", "V60", 5, "Diesel", 200),
@@ -13,43 +12,33 @@ class Program
         new Bus("Mercedes", "Citaro", 40, "Hybrid", 100),
         new Boat("Yamaha", "242X", 8, "Bensin", 45)
     };
-        // Skriv ut alla fordon
+
         Console.WriteLine("Alla fordon:");
+        PrintVehicles(vehicles);
+
+        Console.WriteLine("\nFordon som går på diesel och har en maxhastighet över 150 km/h:");
+        var filteredVehicles = FilterVehicles(vehicles, v => v.FuelType == "Diesel" && v.MaxSpeed > 150);
+        PrintVehicles(filteredVehicles);
+
+        Console.WriteLine("\nFordon sorterade efter maxhastighet (fallande):");
+        var sortedVehicles = vehicles.OrderByDescending(v => v.MaxSpeed).ToList();
+        PrintVehicles(sortedVehicles);
+
+        Console.WriteLine("\nDiesel vehicles in alphabetical order:");
+        var testSort = vehicles.Where(v => v.FuelType == "Diesel").OrderBy(v => v.Make).ToList();
+        PrintVehicles(testSort);
+    }
+
+    static List<Vehicle> FilterVehicles(List<Vehicle> vehicles, Func<Vehicle, bool> criteria)
+    {
+        return vehicles.Where(criteria).ToList();
+    }
+
+    static void PrintVehicles(List<Vehicle> vehicles)
+    {
         foreach (var vehicle in vehicles)
         {
-            Console.WriteLine(vehicle);
-        }
-
-        // Filtrera och skriv ut bara bilar
-        Console.WriteLine("\nBara bilar:");
-        var cars = FilterVehicles<Car>(vehicles);
-        foreach (var car in cars)
-        {
-            Console.WriteLine(car);
-        }
-
-        // Sälj ett fordon
-        var vehicleToSell = vehicles.Find(v => v.Make == "Toyota");
-        if (vehicleToSell != null)
-        {
-            SellVehicle(vehicles, vehicleToSell);
-        }
-
-        // Skriv ut uppdaterad lista
-        Console.WriteLine("\nUppdaterad lista efter försäljning:");
-        foreach (var vehicle in vehicles)
-        {
-            Console.WriteLine(vehicle);
-        }
-        static List<T> FilterVehicles<T>(List<Vehicle> vehicles) where T : Vehicle
-        {
-            return vehicles.OfType<T>().ToList();
-        }
-
-        static void SellVehicle(List<Vehicle> vehicles, Vehicle vehicle)
-        {
-            Console.WriteLine($"\nSäljer fordon: {vehicle}");
-            vehicles.Remove(vehicle);
+            Console.WriteLine($"{vehicle.Make} {vehicle.Model} - Bränsle: {vehicle.FuelType}, Max hastighet: {vehicle.MaxSpeed} km/h");
         }
     }
 }
