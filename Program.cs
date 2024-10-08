@@ -25,8 +25,8 @@ class Program
         PrintVehicles(sortedVehicles);
 
         Console.WriteLine("\nDiesel vehicles in alphabetical order:");
-        var testSort = vehicles.Where(v => v.FuelType == "Diesel").OrderBy(v => v.Make).ToList();
-        PrintVehicles(testSort);
+        var dieselSort = vehicles.Where(v => v.FuelType == "Diesel").OrderBy(v => v.Make).ToList();
+        PrintVehicles(dieselSort);
     }
 
     static List<Vehicle> FilterVehicles(List<Vehicle> vehicles, Func<Vehicle, bool> criteria)
