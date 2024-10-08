@@ -35,6 +35,6 @@ public abstract class Manager
 
     public static void DisplayService(int vehicleId)
     {
-        Console.WriteLine(_maintenanceRecords[vehicleId]);
+        Console.WriteLine(_maintenanceRecords[vehicleId].ServiceType);
     }
 }
