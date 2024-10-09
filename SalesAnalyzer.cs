@@ -1,24 +1,25 @@
 ﻿namespace CarzCo
 {
-    internal class SalesAnalyzer
+    internal class SalesAnalyzer<T> where T : Vehicle
     {
-        protected List<SaleRecord> FilterVehicleType<T>(List<SaleRecord> records) where T : Vehicle
+        private static List<SaleRecord> FilterVehicleType(List<SaleRecord> records)
         {
             if (typeof(T) != typeof(Vehicle))
             {
                 records = records.Where(v => v.Vehicle.GetType() == typeof(T)).ToList();
             }
             return records;
-            
         }
-        public double TotalRevenue<T>(List<SaleRecord> records) where T : Vehicle
+
+        public static double TotalRevenue(List<SaleRecord> records)
         {
-            records = FilterVehicleType<T>(records);
+            records = FilterVehicleType(records);
             return records.Sum(r => r.SellPrice);
         }
-        public double AveragePrice<T>(List<SaleRecord> records) where T : Vehicle
-        {   
-            records = FilterVehicleType<T>(records);
+
+        public static double AveragePrice(List<SaleRecord> records)
+        {
+            records = FilterVehicleType(records);
             return records.Average(r => r.SellPrice);
         }
     }
