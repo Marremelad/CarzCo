@@ -47,10 +47,7 @@ public class Menu
             new SelectionPrompt<string>()
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoices(new[] {
-                    "Main menu",
-                    "Reserved vehicles",
-                }));
+                .AddChoiceGroup("", "Reserved vehicles", "Main menu"));
         
         switch (choice)
         {
