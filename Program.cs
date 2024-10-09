@@ -23,6 +23,9 @@ class Program
             new Boat("Small", "Boat", 10, FuelType.Diesel, 50)
         };
 
+        Car carToSell = new Car("Test", "Sell", 4, FuelType.Ethanol, 500);
+        Motorcycle MotoToSell = new Motorcycle("Test2", "Sell2", false, FuelType.Diesel, 500);
+
         Dictionary<int, Vehicle> reservedVehicles = new Dictionary<int, Vehicle>()
         {
             { vehiclesList[0].VehicleId, vehiclesList[0] },
@@ -31,6 +34,14 @@ class Program
             { vehiclesList[9].VehicleId, vehiclesList[9] },
         };
         
+        Manager.AddVehicle(carToSell);
+        Manager.AddVehicle(MotoToSell);
         
+        Manager.SellVehicle(carToSell, 500);
+        Manager.SellVehicle(MotoToSell, 5000);
+
+        Console.WriteLine(SalesAnalyzer<Motorcycle>.AveragePrice(Manager._SaleRecords));
+        Console.WriteLine(SalesAnalyzer<Car>.TotalRevenue(Manager._SaleRecords));
+
     }
 }
