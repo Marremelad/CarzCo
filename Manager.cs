@@ -9,7 +9,18 @@ public abstract class Manager
     private static Dictionary<int, MaintenanceRecord> _maintenanceRecords = new Dictionary<int, MaintenanceRecord>();
 
     private static Dictionary<int, DateTime> _dateAddedToStock = new Dictionary<int, DateTime>();
+    private static List<SaleRecord> _SaleRecords = [];
+    
+    public static void SellVehicle(Vehicle vehicle, int price)
+    {
+        DateTime dateAdded = _dateAddedToStock[vehicle.VehicleId];
+        _dateAddedToStock.Remove(vehicle.VehicleId);
 
+        SaleRecord salerecord = new SaleRecord(vehicle, price, dateAdded);
+        _SaleRecords.Add(salerecord);
+
+        _vehicles.Remove(vehicle);
+    }
     public static void AddVehicle(Vehicle vehicle)
     {
         _vehicles.Add(vehicle);
