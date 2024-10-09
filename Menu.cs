@@ -100,10 +100,7 @@ public class Menu
                 .Title(vehicle.DisplayAttributes())
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoices(new[] {
-                    "Buy this vehicle",
-                    "Reserve this vehicle",
-                }));
+                .AddChoiceGroup("", "Buy this vehicle", "Reserve this vehicle", "Main menu"));
         if (CheckChoice(choice)) MainMenu();
         
         switch (choice)
