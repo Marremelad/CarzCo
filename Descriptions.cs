@@ -8,7 +8,7 @@ namespace CarzCo
 {
     public enum FuelType 
     {
-        Bensin,
+        Petrol,
         Diesel,
         Hybrid,
         Ethanol,
