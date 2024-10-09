@@ -10,7 +10,7 @@ public abstract class Manager
 
     private static Dictionary<int, DateTime> _dateAddedToStock = new Dictionary<int, DateTime>();
     
-    private static List<SaleRecord> _SaleRecords = new List<SaleRecord>();
+    public static List<SaleRecord> _SaleRecords = new List<SaleRecord>();
     
     public static void AddVehicle(Vehicle vehicle)
     {
