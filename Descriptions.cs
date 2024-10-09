@@ -13,4 +13,21 @@ namespace CarzCo
         Hybrid,
         Ethanol,
     }
+
+    public enum Color
+    {
+        Red,
+        Green,
+        Blue,
+        Yellow,
+        Orange,
+        Purple,
+        Pink,
+        White,
+        Black,
+        Brown,
+        Grey,
+        Gold,
+        Silver,
+    }
 }
