@@ -27,7 +27,7 @@ public abstract class Vehicle : IDrivable
 
     public override string ToString()
     {
-        return $"{Color} {Make} {Model}";
+        return $"  {Color} {Make} {Model}";
     }
     
     public abstract string DisplayAttributes();
