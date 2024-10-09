@@ -31,7 +31,13 @@ public abstract class Manager
     
     public static List<Vehicle> GetVehicles()
     {
-        return _vehicles;
+        List<Vehicle> availableVehicles = new List<Vehicle>();
+        foreach (Vehicle vehicle in _vehicles)
+        {
+            if (_reservedVehicles.ContainsValue(vehicle)) continue;
+            else availableVehicles.Add(vehicle);
+        }
+        return availableVehicles;
     }
     
     public static void ReserveVehicle(Vehicle vehicle)
