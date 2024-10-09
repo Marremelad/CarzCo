@@ -21,17 +21,10 @@ public abstract class Vehicle : IDrivable
         MaxSpeed = maxSpeed;
     }
 
-    // private string GenerateRegNumber()
-    // {
-    //     string regNumber = "";
-    //     for (int i = 0; i < 7; i++)
-    //     {
-    //         if (i < 3)
-    //         {
-    //             regNumber += new Random().Next();
-    //         }
-    //     }
-    // }
+    public override string ToString()
+    {
+        return $" {Make} {Model}";
+    }
     public  abstract void Drive();
 }
 
@@ -46,10 +39,6 @@ public class Car : Vehicle
     public override void Drive()
     {
         Console.WriteLine($"The car is driving.");
-    }
-    public override string ToString()
-    {
-        return $"Make: {Make},  Model: {Model},  Doors: {Doors}.";
     }
 }
 
@@ -67,10 +56,6 @@ public class Motorcycle : Vehicle
     {
         Console.WriteLine($"The motorcycle is driving.");
     }
-    public override string ToString()
-    {
-        return $"Make: {Make},  Model: {Model}, Has sidecart: {HasSideCart}.";
-    }
 }
 
 // Truck class.
@@ -86,10 +71,6 @@ public class Truck : Vehicle
     public override void Drive()
     {
         Console.WriteLine($"The truck is driving.");
-    }
-    public override string ToString()
-    {
-        return $"Make: {Make},  Model: {Model},  Axels: {NumberOfAxels}.";
     }
 }
 
@@ -107,10 +88,6 @@ public class Bus : Vehicle
     {
         Console.WriteLine($"The bus is driving.");
     }
-    public override string ToString()
-    {
-        return $"Make: {Make},  Model: {Model},  Passenger capacity: {PassengerCapacity}.";
-    }
 }
 
 // Boat class.
@@ -126,9 +103,5 @@ public class Boat : Vehicle
     public override void Drive()
     {
         Console.WriteLine($"The boat is driving.");
-    }
-    public override string ToString()
-    {
-        return $"Make: {Make},  Model: {Model},  Passenger capacity: {PassengerCapacity}.";
     }
 }
