@@ -27,7 +27,7 @@ public abstract class Vehicle : IDrivable
 
     public override string ToString()
     {
-        return $"  {Color} {Make} {Model}";
+        return $"{Color} {Make} {Model}";
     }
     
     public abstract string DisplayAttributes();
@@ -74,7 +74,7 @@ public class Motorcycle : Vehicle
     public override string DisplayAttributes()
     {
         string hasSideCart = HasSideCart ? "Yes" : "No";
-        return $"\n  {Make} {Model}\n  Color: {Color}\n  Has a side cart: {hasSideCart}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Has a side cart: {hasSideCart}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
     }
 }
 
