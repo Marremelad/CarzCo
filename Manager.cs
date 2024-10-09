@@ -24,6 +24,14 @@ public abstract class Manager
             _dateAddedToStock.Add(vehicle.VehicleId, DateTime.Now);
         }
     }
+
+    public static void DisplayDateAddedToStock()
+    {
+        foreach (DateTime date in _dateAddedToStock.Values)
+        {
+            Console.WriteLine(date);
+        }
+    }
     
     public static void DisplayVehicles()
     {
