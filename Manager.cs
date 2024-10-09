@@ -9,24 +9,15 @@ public abstract class Manager
     private static Dictionary<int, MaintenanceRecord> _maintenanceRecords = new Dictionary<int, MaintenanceRecord>();
 
     private static Dictionary<int, DateTime> _dateAddedToStock = new Dictionary<int, DateTime>();
-    private static List<SaleRecord> _SaleRecords = [];
     
-    public static void SellVehicle(Vehicle vehicle, int price)
-    {
-        DateTime dateAdded = _dateAddedToStock[vehicle.VehicleId];
-        _dateAddedToStock.Remove(vehicle.VehicleId);
-
-        SaleRecord salerecord = new SaleRecord(vehicle, price, dateAdded);
-        _SaleRecords.Add(salerecord);
-
-        _vehicles.Remove(vehicle);
-    }
+    private static List<SaleRecord> _SaleRecords = new List<SaleRecord>();
+    
     public static void AddVehicle(Vehicle vehicle)
     {
         _vehicles.Add(vehicle);
         _dateAddedToStock.Add(vehicle.VehicleId, DateTime.Now);
     }
-
+    
     public static void AddVehicle(IList<Vehicle> vehicles)
     {
         foreach (var vehicle in vehicles)
@@ -44,7 +35,7 @@ public abstract class Manager
                               $" {vehicle.FuelType}, Max Velocity: {vehicle.MaxSpeed} km/h\n");
         }
     }
-
+    
     public static void ReserveVehicle(Vehicle vehicle)
     {
         _reservedVehicles.Add(vehicle.VehicleId, vehicle);
@@ -58,7 +49,7 @@ public abstract class Manager
         }
         
     }
-
+    
     public static void DisplayReservedVehicles()
     {
         Console.WriteLine("Reserved Vehicles-");
@@ -81,5 +72,16 @@ public abstract class Manager
         Console.WriteLine($"Vehicle Id: {_maintenanceRecords[vehicleId].Id}\n" +
                           $"Service Type: {_maintenanceRecords[vehicleId].ServiceType}\n" +
                           $"Date: {_maintenanceRecords[vehicleId].Date:d}");
+    }
+    
+    public static void SellVehicle(Vehicle vehicle, int price)
+    {
+        DateTime dateAdded = _dateAddedToStock[vehicle.VehicleId];
+        _dateAddedToStock.Remove(vehicle.VehicleId);
+
+        SaleRecord salerecord = new SaleRecord(vehicle, price, dateAdded);
+        _SaleRecords.Add(salerecord);
+
+        _vehicles.Remove(vehicle);
     }
 }
