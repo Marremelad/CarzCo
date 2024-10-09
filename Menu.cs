@@ -31,7 +31,7 @@ public class Menu
     {
         if (choice is string stringValue)
         {
-            if (stringValue == "Return to main menu")
+            if (stringValue == "Main menu")
             {
                 return true;
             }
@@ -39,15 +39,40 @@ public class Menu
         return false;
     }
 
+    public static void DisplayReservedVehicle(Vehicle vehicle)
+    {
+        Console.WriteLine($"{vehicle.DisplayAttributes()}\n");
+        
+        var choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .PageSize(10)
+                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
+                .AddChoices(new[] {
+                    "Main menu",
+                    "Reserved vehicles",
+                }));
+        
+        switch (choice)
+        {
+            case "Main menu":
+                MainMenu();
+                break;
+            case "Reserved vehicles":
+                ReservedVehiclesMenu(Manager.GetReservedVehicles());
+                break;
+        }
+    }
+
     private static void VehiclesMenu(List<Vehicle> vehicles)
     {
+        Console.Clear();
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<object>()
                 .Title("\n  Vehicles in stock")
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(vehicles)
-                .AddChoices("Return to main menu"));
+                .AddChoiceGroup("", "Main menu")); 
         
         if (CheckChoice(choice)) MainMenu();
         else VehicleOptionsMenu((Vehicle)choice);
@@ -55,15 +80,17 @@ public class Menu
 
     private static void ReservedVehiclesMenu(Dictionary<int, Vehicle> reservedVehicles)
     {
+        Console.Clear();
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<object>()
                 .Title("\n  Reserved vehicles")
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(reservedVehicles.Values)
-                .AddChoices("Return to main menu"));
+                .AddChoiceGroup("", "Main menu"));
         
         if (CheckChoice(choice)) MainMenu();
+        DisplayReservedVehicle((Vehicle)choice);
     }
 
     private static void VehicleOptionsMenu(Vehicle vehicle)
@@ -71,7 +98,7 @@ public class Menu
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
                 .Title(vehicle.DisplayAttributes())
-                .PageSize(5)
+                .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(new[] {
                     "Buy this vehicle",
