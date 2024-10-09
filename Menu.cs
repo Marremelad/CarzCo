@@ -41,7 +41,7 @@ public class Menu
 
     public static void DisplayReservedVehicle(Vehicle vehicle)
     {
-        Console.WriteLine($"{vehicle.DisplayAttributes()}\n");
+        Console.WriteLine($"{vehicle.DisplayAttributes()}");
         
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
