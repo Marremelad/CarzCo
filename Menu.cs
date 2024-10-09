@@ -11,12 +11,13 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
                 .AddChoices(new[] {
-                    "Vehicles", "Reserved Vehicles",
+                    "All Vehicles",
+                    "Reserved Vehicles",
                 }));
         
         switch (choice)
         {
-            case "Vehicles":
+            case "All Vehicles":
                 VehiclesMenu(Manager.GetVehicles());
                 break;
             case "Reserved Vehicles":
@@ -28,20 +29,40 @@ public class Menu
     private static void VehiclesMenu(List<Vehicle> vehicles)
     {
         var choice = AnsiConsole.Prompt(
-            new SelectionPrompt<Vehicle>()
+            new SelectionPrompt<object>()
                 .Title("Vehicles in stock")
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoices(vehicles));
+                .AddChoices(vehicles)
+                .AddChoices("Return to main menu"));
+
+        if (choice is string stringValue)
+        {
+            if (stringValue == "Return to main menu")
+            {
+                MainMenu();
+            }
+        }
+        else Console.WriteLine("Hello, World!");
     }
 
     private static void ReservedVehiclesMenu(Dictionary<int, Vehicle> reservedVehicles)
     {
         var choice = AnsiConsole.Prompt(
-            new SelectionPrompt<Vehicle>()
+            new SelectionPrompt<object>()
                 .Title("Reserved vehicles")
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoices(reservedVehicles.Values));
+                .AddChoices(reservedVehicles.Values)
+                .AddChoices("Return to main menu"));
+        
+        if (choice is string stringValue)
+        {
+            if (stringValue == "Return to main menu")
+            {
+                MainMenu();
+            }
+        }
+        else Console.WriteLine("Hello, World!");
     }
 }
