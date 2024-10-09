@@ -10,7 +10,9 @@ public abstract class Vehicle : IDrivable
     public Color Color { get; set; }
     public FuelType FuelType { get; set; }
     public int MaxSpeed { get; set; }
-    internal Vehicle(string make, string model, Color color, FuelType fuelType, int maxSpeed)
+    public int Price { get; set; }
+    
+    internal Vehicle(string make, string model, Color color, FuelType fuelType, int maxSpeed, int price)
     {
         VehicleId = _id;
         _id++;
@@ -20,11 +22,12 @@ public abstract class Vehicle : IDrivable
         Color = color;
         FuelType = fuelType;
         MaxSpeed = maxSpeed;
+        Price = price;
     }
 
     public override string ToString()
     {
-        return $" {Make} {Model}";
+        return $"{Color} {Make} {Model}";
     }
     public  abstract void Drive();
 }
@@ -33,8 +36,8 @@ public abstract class Vehicle : IDrivable
 public class Car : Vehicle
 {
     public int Doors { get; set; }
-    public Car(string make, string model, Color color, int doors, FuelType fuelType, int maxSpeed) : 
-        base(make, model, color, fuelType, maxSpeed) {
+    public Car(string make, string model, Color color, int doors, FuelType fuelType, int maxSpeed, int price) : 
+        base(make, model, color, fuelType, maxSpeed, price) {
         Doors = doors;
     }
     public override void Drive()
@@ -48,8 +51,8 @@ public class Motorcycle : Vehicle
 {
     public bool HasSideCart { get; set; }
 
-    public Motorcycle(string make, string model, Color color, bool hasSideCart, FuelType fuelType, int maxSpeed) :
-        base(make, model, color, fuelType, maxSpeed)
+    public Motorcycle(string make, string model, Color color, bool hasSideCart, FuelType fuelType, int maxSpeed, int price) :
+        base(make, model, color, fuelType, maxSpeed, price)
     {
         HasSideCart = hasSideCart;
     }
@@ -64,8 +67,8 @@ public class Truck : Vehicle
 {
     public int NumberOfAxels { get; set; }
 
-    public Truck(string make, string model, Color color, int numberOfAxels, FuelType fuelType, int maxSpeed) :
-        base(make, model, color, fuelType, maxSpeed)
+    public Truck(string make, string model, Color color, int numberOfAxels, FuelType fuelType, int maxSpeed, int price) :
+        base(make, model, color, fuelType, maxSpeed, price)
     {
         NumberOfAxels = numberOfAxels;
     }
@@ -80,8 +83,8 @@ public class Bus : Vehicle
 {
     public int PassengerCapacity { get; set; }
 
-    public Bus(string make, string model, Color color, int passengerCapacity, FuelType fuelType, int maxSpeed) :
-        base(make, model, color, fuelType, maxSpeed)
+    public Bus(string make, string model, Color color, int passengerCapacity, FuelType fuelType, int maxSpeed, int price) :
+        base(make, model, color, fuelType, maxSpeed, price)
     {
         PassengerCapacity = passengerCapacity;
     }
@@ -96,8 +99,8 @@ public class Boat : Vehicle
 {
     public int PassengerCapacity { get; set; }
 
-    public Boat(string make, string model, Color color, int passengerCapacity, FuelType fuelType, int maxSpeed) :
-        base(make, model, color, fuelType, maxSpeed)
+    public Boat(string make, string model, Color color, int passengerCapacity, FuelType fuelType, int maxSpeed, int price) :
+        base(make, model, color, fuelType, maxSpeed, price)
     {
         PassengerCapacity = passengerCapacity;
     }
