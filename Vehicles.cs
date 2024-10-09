@@ -4,7 +4,6 @@
 public abstract class Vehicle : IDrivable
 {
     private static int _id;
-
     public int VehicleId { get; set; }
     public string Model { get; set; }
     public string Make { get; set; }
