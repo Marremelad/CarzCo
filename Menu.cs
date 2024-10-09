@@ -83,11 +83,11 @@ public class Menu
         {
             case "Buy this vehicle":
                 Manager.SellVehicle(vehicle, 500);
-                Console.WriteLine("Thank you for visiting Carz Co. Have a nice ride.");
+                Console.WriteLine("\nThank you for visiting Carz Co. Have a nice ride.");
                 break;
             case "Reserve this vehicle":
                 Manager.ReserveVehicle(vehicle);
-                Console.WriteLine("Your vehicle has been reserved.");
+                Console.WriteLine("\nYour vehicle has been reserved.");
                 break;
         }
         Thread.Sleep(3000);
