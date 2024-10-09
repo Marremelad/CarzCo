@@ -60,9 +60,12 @@ public abstract class Manager
 
     public static void DisplayReservedVehicles()
     {
+        Console.WriteLine("Reserved Vehicles-");
         foreach (var vehicle in _reservedVehicles.Values)
         {
-            Console.WriteLine(vehicle.Make);
+            Console.WriteLine($"Vehicle ID: {vehicle.VehicleId}\n" +
+                              $"Make {vehicle.Make}\n" +
+                              $"Model {vehicle.Model}\n");
         }
     }
     
