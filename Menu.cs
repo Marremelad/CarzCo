@@ -3,6 +3,11 @@ namespace CarzCo;
 
 public class Menu
 {
+    private static readonly List<string> _vehicleTypes = [
+             "All types", "Cars", "Motorcycles",
+                        "Trucks", "Buses", "Boats"];
+    private static Type? _type = null;
+
     public static void MainMenu()
     {
         Console.Clear();
@@ -14,15 +19,19 @@ public class Menu
                 .AddChoices(new[] {
                     "All Vehicles",
                     "Reserved Vehicles",
+                    "Filter Vehicles"
                 }));
         
         switch (choice)
         {
             case "All Vehicles":
-                VehiclesMenu(Manager.GetVehicles());
+                VehiclesMenu(Manager.GetVehicles(_type));
                 break;
             case "Reserved Vehicles":
-                ReservedVehiclesMenu(Manager.GetReservedVehicles());
+                ReservedVehiclesMenu(Manager.GetReservedVehicles(_type));
+                break;
+            case "Filter Vehicles":
+                VehicleTypeMenu();
                 break;
         }
     }
@@ -114,4 +123,43 @@ public class Menu
         Thread.Sleep(3000);
         MainMenu();
     }
+    private static void VehicleTypeMenu() { 
+        var input = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+            .Title("What type of vehicle are you interested in?")
+            .PageSize(10)
+            .AddChoices(_vehicleTypes)
+             .AddChoiceGroup("", "Main menu")); 
+
+            switch (input)
+            {
+                case "All types":
+                    _type = null;
+                    break;
+
+                case "Cars":
+                    _type = typeof(Car);
+                    break;
+
+                case "Motorcycles":
+                    _type = typeof(Motorcycle);
+                    break;
+
+                case "Trucks":
+                    _type = typeof(Truck);
+                    break;
+
+                case "Buses":
+                    _type = typeof(Bus);
+                    break;
+
+                case "Boats":
+                    _type = typeof(Boat);
+                    break;
+
+                case "Main menu":
+                    break;
+            }
+            MainMenu();
+       }
 }

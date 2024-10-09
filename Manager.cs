@@ -29,9 +29,18 @@ public abstract class Manager
         }
     }
     
-    public static List<Vehicle> GetVehicles()
+    public static List<Vehicle> GetVehicles(Type? type = null)
     {
+
         List<Vehicle> availableVehicles = new List<Vehicle>();
+        if (type != null)
+        {
+            availableVehicles = _vehicles.Where(v => v.GetType() == type &&
+                                !_reservedVehicles.ContainsValue(v)).ToList();
+
+            return availableVehicles;
+        }
+
         foreach (Vehicle vehicle in _vehicles)
         {
             if (_reservedVehicles.ContainsValue(vehicle)) continue;
@@ -54,8 +63,16 @@ public abstract class Manager
         
     }
     
-    public static Dictionary<int, Vehicle> GetReservedVehicles()
+    public static Dictionary<int, Vehicle> GetReservedVehicles(Type? type = null)
     {
+        if (type != null)
+        {
+            Dictionary<int, Vehicle> filteredReservedVehicles = _reservedVehicles
+           .Where(kv => kv.Value.GetType() == type)
+           .ToDictionary(kv => kv.Key, kv => kv.Value);
+            return filteredReservedVehicles;
+
+        }
         return _reservedVehicles;
     }
     
