@@ -51,7 +51,7 @@ public class Car : Vehicle
     
     public override string DisplayAttributes()
     {
-        return $"  {Make} {Model}\n  Color: {Color}\n  Number of doors: {Doors}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Number of doors: {Doors}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
     }
 }
 
@@ -74,7 +74,7 @@ public class Motorcycle : Vehicle
     public override string DisplayAttributes()
     {
         string hasSideCart = HasSideCart ? "Yes" : "No";
-        return $"  {Make} {Model}\n  Color: {Color}\n  Has a side cart: {hasSideCart}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Has a side cart: {hasSideCart}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
     }
 }
 
@@ -96,7 +96,7 @@ public class Truck : Vehicle
     
     public override string DisplayAttributes()
     {
-        return $"  {Make} {Model}\n  Color: {Color}\n  Number of Axels: {NumberOfAxels}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Number of Axels: {NumberOfAxels}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
     }
 }
 
@@ -117,7 +117,7 @@ public class Bus : Vehicle
     
     public override string DisplayAttributes()
     {
-        return $"  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
     }
 }
 
@@ -138,6 +138,6 @@ public class Boat : Vehicle
     
     public override string DisplayAttributes()
     {
-        return $"  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
+        return $"\n  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n  Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}\n  Price {Price}";
     }
 }
