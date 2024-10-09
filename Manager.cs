@@ -64,8 +64,8 @@ public abstract class Manager
         foreach (var vehicle in _reservedVehicles.Values)
         {
             Console.WriteLine($"Vehicle ID: {vehicle.VehicleId}\n" +
-                              $"Make {vehicle.Make}\n" +
-                              $"Model {vehicle.Model}\n");
+                              $"Make: {vehicle.Make}\n" +
+                              $"Model: {vehicle.Model}\n");
         }
     }
     
