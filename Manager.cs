@@ -1,4 +1,6 @@
-﻿namespace CarzCo;
+﻿using Spectre.Console;
+
+namespace CarzCo;
 
 public abstract class Manager
 {
@@ -27,13 +29,9 @@ public abstract class Manager
         }
     }
     
-    public static void DisplayVehicles()
+    public static List<Vehicle> GetVehicles()
     {
-        foreach (var vehicle in _vehicles)
-        {
-            Console.WriteLine($"{vehicle.Make} {vehicle.Model} - Fuel Type:" +
-                              $" {vehicle.FuelType}, Max Velocity: {vehicle.MaxSpeed} km/h\n");
-        }
+        return _vehicles;
     }
     
     public static void ReserveVehicle(Vehicle vehicle)
@@ -50,15 +48,9 @@ public abstract class Manager
         
     }
     
-    public static void DisplayReservedVehicles()
+    public static Dictionary<int, Vehicle> GetReservedVehicles()
     {
-        Console.WriteLine("Reserved Vehicles-");
-        foreach (var vehicle in _reservedVehicles.Values)
-        {
-            Console.WriteLine($"Vehicle ID: {vehicle.VehicleId}\n" +
-                              $"Make: {vehicle.Make}\n" +
-                              $"Model: {vehicle.Model}\n");
-        }
+        return _reservedVehicles;
     }
     
     public static void AddService(MaintenanceRecord service)
