@@ -70,7 +70,7 @@ public class Menu
     {
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
-                .Title($"\n  {vehicle.Make} {vehicle.Model}\n  Color: {vehicle.Color}\n  Price: {vehicle.Price}")
+                .Title(vehicle.DisplayAttributes())
                 .PageSize(5)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(new[] {
