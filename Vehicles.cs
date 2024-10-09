@@ -29,6 +29,9 @@ public abstract class Vehicle : IDrivable
     {
         return $"{Color} {Make} {Model}";
     }
+    
+    public abstract string DisplayAttributes();
+    
     public  abstract void Drive();
 }
 
@@ -46,7 +49,7 @@ public class Car : Vehicle
         Console.WriteLine($"The car is driving.");
     }
     
-    public string DisplayAttributes()
+    public override string DisplayAttributes()
     {
         return $"  {Make} {Model}\n  Color: {Color}\n  Number of doors: {Doors}\n Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
     }
@@ -68,7 +71,7 @@ public class Motorcycle : Vehicle
         Console.WriteLine($"The motorcycle is driving.");
     }
     
-    public string DisplayAttributes()
+    public override string DisplayAttributes()
     {
         string hasSideCart = HasSideCart ? "Yes" : "No";
         return $"  {Make} {Model}\n  Color: {Color}\n  Has a side cart: {hasSideCart}\n Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
@@ -91,7 +94,7 @@ public class Truck : Vehicle
         Console.WriteLine($"The truck is driving.");
     }
     
-    public string DisplayAttributes()
+    public override string DisplayAttributes()
     {
         return $"  {Make} {Model}\n  Color: {Color}\n  Number of Axels: {NumberOfAxels}\n Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
     }
@@ -112,7 +115,7 @@ public class Bus : Vehicle
         Console.WriteLine($"The bus is driving.");
     }
     
-    public string DisplayAttributes()
+    public override string DisplayAttributes()
     {
         return $"  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
     }
@@ -133,7 +136,7 @@ public class Boat : Vehicle
         Console.WriteLine($"The boat is driving.");
     }
     
-    public string DisplayAttributes()
+    public override string DisplayAttributes()
     {
         return $"  {Make} {Model}\n  Color: {Color}\n  Passenger capacity: {PassengerCapacity}\n Fuel Type: {FuelType}\n  Max Speed: {MaxSpeed}  Price {Price}";
     }
