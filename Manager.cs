@@ -28,6 +28,7 @@ public abstract class Manager
             _dateAddedToStock.Add(vehicle.VehicleId, DateTime.Now);
         }
     }
+    
 
     public static List<Vehicle> GetFilteredVehicles(Type? type = null)
     {
