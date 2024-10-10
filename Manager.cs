@@ -28,11 +28,24 @@ public abstract class Manager
             _dateAddedToStock.Add(vehicle.VehicleId, DateTime.Now);
         }
     }
+
+    public static List<Vehicle> GetFilteredVehicles(Type? type = null)
+    {
+        List<Vehicle> filteredVehicles = new List<Vehicle>();
+
+        if (type != null)
+        {
+            filteredVehicles = _vehicles.Where(v => v.GetType() == type && !_reservedVehicles.ContainsValue((v)))
+                .ToList();
+        }
+
+        return filteredVehicles;
+    } 
     
     public static List<Vehicle> GetVehicles(Type? type = null)
     {
-
         List<Vehicle> availableVehicles = new List<Vehicle>();
+        
         if (type != null)
         {
             availableVehicles = _vehicles.Where(v => v.GetType() == type &&
@@ -65,14 +78,6 @@ public abstract class Manager
     
     public static Dictionary<int, Vehicle> GetReservedVehicles(Type? type = null)
     {
-        if (type != null)
-        {
-            Dictionary<int, Vehicle> filteredReservedVehicles = _reservedVehicles
-           .Where(kv => kv.Value.GetType() == type)
-           .ToDictionary(kv => kv.Key, kv => kv.Value);
-            return filteredReservedVehicles;
-
-        }
         return _reservedVehicles;
     }
     
