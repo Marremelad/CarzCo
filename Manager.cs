@@ -1,6 +1,4 @@
-﻿using Spectre.Console;
-
-namespace CarzCo;
+﻿namespace CarzCo;
 
 public abstract class Manager
 {
