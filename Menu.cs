@@ -64,15 +64,15 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[blue](Move up and down to reveal more options)[/]")
                 .AddChoices(vehicles)
-                .AddChoiceGroup("", "Main Menu", "Filter Vehicles"));
+                .AddChoiceGroup("", "Filter Vehicles", "Main Menu"));
         
         switch (choice)
         {
-            case "Main Menu":
-                MainMenu();
-                break;
             case "Filter Vehicles":
                 VehicleTypeMenu();
+                break;
+            case "Main Menu":
+                MainMenu();
                 break;
         }
         VehicleOptionsMenu((Vehicle)choice);
@@ -85,7 +85,7 @@ public class Menu
             new SelectionPrompt<object>()
                 .Title("\n  Reserved Vehicles")
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
+                .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
                 .AddChoices(reservedVehicles.Values)
                 .AddChoiceGroup("", "Main Menu"));
 
