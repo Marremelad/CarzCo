@@ -62,13 +62,13 @@ public abstract class Manager
         return filteredVehicles;
     } 
     
-    // Reserves a single vehicle by adding it to the reserved vehicles dictionary.
+    // Reserves a single vehicle by adding it to the reserved vehicle's dictionary.
     public static void ReserveVehicle(Vehicle vehicle)
     {
         _reservedVehicles.Add(vehicle.VehicleId, vehicle);
     }
     
-    // Reserves multiple vehicles by adding them to the reserved vehicles dictionary.
+    // Reserves multiple vehicles by adding them to the reserved vehicle's dictionary.
     public static void ReserveVehicle(List<Vehicle> vehicles)
     {
         foreach (var vehicle in vehicles)
