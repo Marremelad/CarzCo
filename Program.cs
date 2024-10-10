@@ -1,10 +1,10 @@
-﻿
-namespace CarzCo;
+﻿namespace CarzCo;
 
 class Program
 {
     static void Main()
     {
+        // List of various vehicles (cars, motorcycles, trucks, buses, boats) being created and added to the list.
         List<Vehicle> vehiclesList =
         [
             new Car("Honda", "Civic", Color.Blue, 4, FuelType.Petrol, 500, 400000),
@@ -28,19 +28,23 @@ class Program
             new Boat("Small", "Boat", Color.Brown, 10, FuelType.Diesel, 50, 50000)
         ];
         
+        // List of vehicles to be reserved, referencing specific indices from the vehiclesList.
         List<Vehicle> vehiclesToReserve =
         [
-            vehiclesList[0],
-            vehiclesList[3],
-            vehiclesList[6],
-            vehiclesList[9],
-            vehiclesList[12],
-
+            vehiclesList[0],   // Reserving the Honda Civic.
+            vehiclesList[3],   // Reserving the Kawasaki Ninja.
+            vehiclesList[6],   // Reserving the Ford Raptor.
+            vehiclesList[9],   // Reserving the Volvo GTB (Red Bus).
+            vehiclesList[12],  // Reserving the Big Boat.
         ];
         
+        // Adding the full list of vehicles to the system.
         Manager.AddVehicle(vehiclesList);
+        
+        // Reserving the selected vehicles from the vehiclesToReserve list.
         Manager.ReserveVehicle(vehiclesToReserve);
         
+        // Displaying the main menu of the application.
         Menu.MainMenu();
     }
 }
