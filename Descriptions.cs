@@ -1,33 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarzCo
+﻿namespace CarzCo
 {
+    // Enum representing different types of fuel for vehicles.
     public enum FuelType 
     {
-        Petrol,
-        Diesel,
-        Hybrid,
-        Ethanol,
+        Petrol,    // Standard gasoline
+        Diesel,    // Diesel fuel
+        Hybrid,    // Hybrid electric fuel
+        Ethanol,   // Ethanol fuel
     }
 
+    // Enum representing different colors a vehicle can have.
     public enum Color
     {
-        Red,
-        Green,
-        Blue,
-        Yellow,
-        Orange,
-        Purple,
-        Pink,
-        White,
-        Black,
-        Brown,
-        Grey,
-        Gold,
-        Silver,
+        Red,       // Red color
+        Green,     // Green color
+        Blue,      // Blue color
+        Yellow,    // Yellow color
+        Orange,    // Orange color
+        Purple,    // Purple color
+        Pink,      // Pink color
+        White,     // White color
+        Black,     // Black color
+        Brown,     // Brown color
+        Grey,      // Grey color
+        Gold,      // Gold color
+        Silver,    // Silver color
     }
 }
