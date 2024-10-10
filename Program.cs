@@ -1,10 +1,9 @@
-﻿using Spectre.Console;
-
+﻿
 namespace CarzCo;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
         List<Vehicle> vehiclesList =
         [
