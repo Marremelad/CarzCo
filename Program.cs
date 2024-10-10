@@ -18,6 +18,10 @@ class Program
             new Truck("Ford", "Raptor", Color.Yellow, 4, FuelType.Diesel, 200, 700000),
             new Truck("Dodge", "Ram", Color.White, 6, FuelType.Diesel, 200, 550000),
             new Truck("Toyota", "Hilux", Color.Orange, 8, FuelType.Diesel, 200, 500000),
+            
+            new Bus("Volvo", "GTB", Color.Red, 100, FuelType.Diesel, 110, 700000),
+            new Bus("Volvo", "GTB", Color.Yellow, 100, FuelType.Diesel, 110, 700000),
+            new Bus("Volvo", "GTB", Color.Black, 100, FuelType.Diesel, 110, 700000),
 
             new Boat("Big", "Boat", Color.Silver, 100, FuelType.Diesel, 50, 5000000),
             new Boat("Medium", "Boat", Color.Gold, 50, FuelType.Diesel, 50, 500000),
@@ -29,7 +33,8 @@ class Program
             vehiclesList[0],
             vehiclesList[3],
             vehiclesList[6],
-            vehiclesList[9]
+            vehiclesList[9],
+            vehiclesList[12],
 
         ];
         
