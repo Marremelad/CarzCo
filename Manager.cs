@@ -33,7 +33,21 @@ public abstract class Manager
             _dateAddedToStock.Add(vehicle.VehicleId, DateTime.Now);
         }
     }
-
+    
+    // Returns a list of available (non-reserved) vehicles.
+    public static List<Vehicle> GetVehicles()
+    {
+        List<Vehicle> availableVehicles = new List<Vehicle>();
+        
+        foreach (Vehicle vehicle in _vehicles)
+        {
+            // Skip if the vehicle is reserved.
+            if (_reservedVehicles.ContainsValue(vehicle)) continue;
+            availableVehicles.Add(vehicle);
+        }
+        return availableVehicles;
+    }
+    
     // Returns a list of vehicles filtered by type, excluding reserved vehicles.
     public static List<Vehicle> GetFilteredVehicles(Type? type = null)
     {
@@ -47,20 +61,6 @@ public abstract class Manager
 
         return filteredVehicles;
     } 
-    
-    // Returns a list of available (non-reserved) vehicles.
-    public static List<Vehicle> GetVehicles(Type? type = null)
-    {
-        List<Vehicle> availableVehicles = new List<Vehicle>();
-        
-        foreach (Vehicle vehicle in _vehicles)
-        {
-            // Skip if the vehicle is reserved.
-            if (_reservedVehicles.ContainsValue(vehicle)) continue;
-            else availableVehicles.Add(vehicle);
-        }
-        return availableVehicles;
-    }
     
     // Reserves a single vehicle by adding it to the reserved vehicles dictionary.
     public static void ReserveVehicle(Vehicle vehicle)
@@ -79,7 +79,7 @@ public abstract class Manager
     }
     
     // Returns the dictionary of reserved vehicles, optionally filtered by type.
-    public static Dictionary<int, Vehicle> GetReservedVehicles(Type? type = null)
+    public static Dictionary<int, Vehicle> GetReservedVehicles()
     {
         return _reservedVehicles;
     }
