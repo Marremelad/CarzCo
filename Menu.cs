@@ -85,7 +85,7 @@ public class Menu
             new SelectionPrompt<object>()
                 .Title("\n  Reserved Vehicles")
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
+                .MoreChoicesText("[blue](Move up and down to reveal more options)[/]")
                 .AddChoices(reservedVehicles.Values)
                 .AddChoiceGroup("", "Main Menu"));
 
@@ -139,7 +139,6 @@ public class Menu
             new SelectionPrompt<string>()
                 .Title(vehicle.DisplayAttributes())
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoiceGroup("", "Buy this vehicle", "Reserve this vehicle", "Main Menu"));
         
         switch (choice)
