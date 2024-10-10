@@ -6,7 +6,7 @@ public class Menu
     private static readonly List<string> _vehicleTypes = [
              "All types", "Cars", "Motorcycles",
                         "Trucks", "Buses", "Boats"];
-    private static Type? _type = null;
+    private static Type? _type;
 
     public static void MainMenu()
     {
@@ -107,7 +107,6 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoiceGroup("", "Buy this vehicle", "Reserve this vehicle", "Main menu"));
-        if (CheckChoice(choice)) MainMenu();
         
         switch (choice)
         {
@@ -118,6 +117,9 @@ public class Menu
             case "Reserve this vehicle":
                 Manager.ReserveVehicle(vehicle);
                 Console.WriteLine("\nYour vehicle has been reserved.");
+                break;
+            case "Main menu":
+                MainMenu();
                 break;
         }
         Thread.Sleep(3000);
@@ -137,30 +139,25 @@ public class Menu
                     _type = typeof(Car);
                     VehiclesMenu(Manager.GetVehicles(_type));
                     break;
-
                 case "Motorcycles":
                     _type = typeof(Motorcycle);
                     VehiclesMenu(Manager.GetVehicles(_type));
                     break;
-
                 case "Trucks":
                     _type = typeof(Truck);
                     VehiclesMenu(Manager.GetVehicles(_type));
                     break;
-
                 case "Buses":
                     _type = typeof(Bus);
                     VehiclesMenu(Manager.GetVehicles(_type));
                     break;
-
                 case "Boats":
                     _type = typeof(Boat);
                     VehiclesMenu(Manager.GetVehicles(_type));
                     break;
-
                 case "Main menu":
+                    MainMenu();
                     break;
             }
-            MainMenu();
        }
 }
