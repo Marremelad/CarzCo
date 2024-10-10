@@ -4,7 +4,7 @@ namespace CarzCo;
 public class Menu
 {
     private static readonly List<string> VehicleTypes = [
-        "All types", "Cars", "Motorcycles",
+        "Cars", "Motorcycles",
         "Trucks", "Buses", "Boats"];
     private static Type? _type;
 
