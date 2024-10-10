@@ -78,7 +78,7 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(vehicles)
-                .AddChoiceGroup("", "Main menu")); 
+                .AddChoiceGroup("", "Main menu", "Filter vehicle")); 
         
         if (CheckChoice(choice)) MainMenu();
         else VehicleOptionsMenu((Vehicle)choice);
@@ -97,6 +97,38 @@ public class Menu
         
         if (CheckChoice(choice)) MainMenu();
         DisplayReservedVehicle((Vehicle)choice);
+    }
+    
+    private static void VehicleTypeMenu() { 
+        var input = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .Title("What type of vehicle are you interested in?")
+                .PageSize(10)
+                .AddChoices(VehicleTypes)
+                .AddChoiceGroup("", "Main menu")); 
+
+        switch (input)
+        {
+            case "Cars":
+                _type = typeof(Car);
+                break;
+            case "Motorcycles":
+                _type = typeof(Motorcycle);
+                break;
+            case "Trucks":
+                _type = typeof(Truck);
+                break;
+            case "Buses":
+                _type = typeof(Bus);
+                break;
+            case "Boats":
+                _type = typeof(Boat);
+                break;
+            case "Main menu":
+                MainMenu();
+                break;
+        }
+        VehiclesMenu(Manager.GetFilteredVehicles(_type));
     }
 
     private static void VehicleOptionsMenu(Vehicle vehicle)
@@ -125,39 +157,4 @@ public class Menu
         Thread.Sleep(3000);
         MainMenu();
     }
-    private static void VehicleTypeMenu() { 
-        var input = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
-            .Title("What type of vehicle are you interested in?")
-            .PageSize(10)
-            .AddChoices(VehicleTypes)
-             .AddChoiceGroup("", "Main menu")); 
-
-            switch (input)
-            {
-                case "Cars":
-                    _type = typeof(Car);
-                    VehiclesMenu(Manager.GetVehicles(_type));
-                    break;
-                case "Motorcycles":
-                    _type = typeof(Motorcycle);
-                    VehiclesMenu(Manager.GetVehicles(_type));
-                    break;
-                case "Trucks":
-                    _type = typeof(Truck);
-                    VehiclesMenu(Manager.GetVehicles(_type));
-                    break;
-                case "Buses":
-                    _type = typeof(Bus);
-                    VehiclesMenu(Manager.GetVehicles(_type));
-                    break;
-                case "Boats":
-                    _type = typeof(Boat);
-                    VehiclesMenu(Manager.GetVehicles(_type));
-                    break;
-                case "Main menu":
-                    MainMenu();
-                    break;
-            }
-       }
 }
