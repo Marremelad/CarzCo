@@ -1,6 +1,9 @@
-﻿namespace CarzCo;
-
-public interface IDrivable
+﻿namespace CarzCo
 {
-    public void Drive();
+    // Interface defining a drivable vehicle.
+    public interface IDrivable
+    {
+        // Method signature for driving the vehicle.
+        public void Drive();
+    }
 }
