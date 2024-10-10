@@ -7,18 +7,6 @@ public class Menu
         "Cars", "Motorcycles",
         "Trucks", "Buses", "Boats"];
     private static Type? _type;
-
-    private static bool CheckChoice(object choice)
-    {
-        if (choice is string stringValue)
-        {
-            if (stringValue == "Main menu")
-            {
-                return true;
-            }
-        }
-        return false;
-    }
     
     public static void DisplayReservedVehicle(Vehicle vehicle)
     {
@@ -78,10 +66,18 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(vehicles)
-                .AddChoiceGroup("", "Main menu", "Filter vehicle")); 
+                .AddChoiceGroup("", "Main menu", "Filter vehicles"));
         
-        if (CheckChoice(choice)) MainMenu();
-        else VehicleOptionsMenu((Vehicle)choice);
+        switch (choice)
+        {
+            case "Main menu":
+                MainMenu();
+                break;
+            case "Filter vehicles":
+                VehicleTypeMenu();
+                break;
+        }
+        VehicleOptionsMenu((Vehicle)choice);
     }
 
     private static void ReservedVehiclesMenu(Dictionary<int, Vehicle> reservedVehicles)
@@ -94,8 +90,13 @@ public class Menu
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(reservedVehicles.Values)
                 .AddChoiceGroup("", "Main menu"));
-        
-        if (CheckChoice(choice)) MainMenu();
+
+        switch (choice)
+        {
+            case "Main menu":
+                MainMenu();
+                break;
+        }
         DisplayReservedVehicle((Vehicle)choice);
     }
     
