@@ -15,7 +15,6 @@ public class Menu
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoiceGroup("", "Reserved vehicles", "Main menu"));
         
         switch (choice)
@@ -36,7 +35,6 @@ public class Menu
             new SelectionPrompt<string>()
                 .Title("\n  Welcome to Carz Co. The leading console app for buying cars!")
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
                 .AddChoices(new[] {
                     "All Vehicles",
                     "Reserved Vehicles",
@@ -64,7 +62,7 @@ public class Menu
             new SelectionPrompt<object>()
                 .Title("\n  Vehicles in stock")
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
+                .MoreChoicesText("[blue](Move up and down to reveal more options)[/]")
                 .AddChoices(vehicles)
                 .AddChoiceGroup("", "Main menu", "Filter vehicles"));
         
@@ -103,10 +101,10 @@ public class Menu
     private static void VehicleTypeMenu() { 
         var input = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
-                .Title("What type of vehicle are you interested in?")
+                .Title("\n  What type of vehicle are you interested in?")
                 .PageSize(10)
                 .AddChoices(VehicleTypes)
-                .AddChoiceGroup("", "Main menu")); 
+                .AddChoiceGroup("", "All vehicles", "Main menu")); 
 
         switch (input)
         {
@@ -124,6 +122,9 @@ public class Menu
                 break;
             case "Boats":
                 _type = typeof(Boat);
+                break;
+            case "All vehicles":
+                VehiclesMenu(Manager.GetVehicles());
                 break;
             case "Main menu":
                 MainMenu();
