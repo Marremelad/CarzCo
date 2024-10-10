@@ -3,11 +3,44 @@ namespace CarzCo;
 
 public class Menu
 {
-    private static readonly List<string> _vehicleTypes = [
-             "All types", "Cars", "Motorcycles",
-                        "Trucks", "Buses", "Boats"];
+    private static readonly List<string> VehicleTypes = [
+        "All types", "Cars", "Motorcycles",
+        "Trucks", "Buses", "Boats"];
     private static Type? _type;
 
+    private static bool CheckChoice(object choice)
+    {
+        if (choice is string stringValue)
+        {
+            if (stringValue == "Main menu")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void DisplayReservedVehicle(Vehicle vehicle)
+    {
+        Console.WriteLine($"{vehicle.DisplayAttributes()}");
+        
+        var choice = AnsiConsole.Prompt(
+            new SelectionPrompt<string>()
+                .PageSize(10)
+                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
+                .AddChoiceGroup("", "Reserved vehicles", "Main menu"));
+        
+        switch (choice)
+        {
+            case "Main menu":
+                MainMenu();
+                break;
+            case "Reserved vehicles":
+                ReservedVehiclesMenu(Manager.GetReservedVehicles());
+                break;
+        }
+    }
+    
     public static void MainMenu()
     {
         Console.Clear();
@@ -35,40 +68,7 @@ public class Menu
                 break;
         }
     }
-
-    private static bool CheckChoice(object choice)
-    {
-        if (choice is string stringValue)
-        {
-            if (stringValue == "Main menu")
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static void DisplayReservedVehicle(Vehicle vehicle)
-    {
-        Console.WriteLine($"{vehicle.DisplayAttributes()}");
-        
-        var choice = AnsiConsole.Prompt(
-            new SelectionPrompt<string>()
-                .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoiceGroup("", "Reserved vehicles", "Main menu"));
-        
-        switch (choice)
-        {
-            case "Main menu":
-                MainMenu();
-                break;
-            case "Reserved vehicles":
-                ReservedVehiclesMenu(Manager.GetReservedVehicles());
-                break;
-        }
-    }
-
+    
     private static void VehiclesMenu(List<Vehicle> vehicles)
     {
         Console.Clear();
@@ -130,7 +130,7 @@ public class Menu
             new SelectionPrompt<string>()
             .Title("What type of vehicle are you interested in?")
             .PageSize(10)
-            .AddChoices(_vehicleTypes)
+            .AddChoices(VehicleTypes)
              .AddChoiceGroup("", "Main menu")); 
 
             switch (input)
