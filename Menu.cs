@@ -15,14 +15,14 @@ public class Menu
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<string>()
                 .PageSize(10)
-                .AddChoiceGroup("", "Reserved vehicles", "Main menu"));
+                .AddChoiceGroup("", "Reserved Vehicles", "Main Menu"));
         
         switch (choice)
         {
-            case "Main menu":
+            case "Main Menu":
                 MainMenu();
                 break;
-            case "Reserved vehicles":
+            case "Reserved Vehicles":
                 ReservedVehiclesMenu(Manager.GetReservedVehicles());
                 break;
         }
@@ -68,10 +68,10 @@ public class Menu
         
         switch (choice)
         {
-            case "Main menu":
+            case "Main Menu":
                 MainMenu();
                 break;
-            case "Filter vehicles":
+            case "Filter Vehicles":
                 VehicleTypeMenu();
                 break;
         }
@@ -83,15 +83,15 @@ public class Menu
         Console.Clear();
         var choice = AnsiConsole.Prompt(
             new SelectionPrompt<object>()
-                .Title("\n  Reserved vehicles")
+                .Title("\n  Reserved Vehicles")
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
                 .AddChoices(reservedVehicles.Values)
-                .AddChoiceGroup("", "Main menu"));
+                .AddChoiceGroup("", "Main Menu"));
 
         switch (choice)
         {
-            case "Main menu":
+            case "Main Menu":
                 MainMenu();
                 break;
         }
@@ -104,7 +104,7 @@ public class Menu
                 .Title("\n  What type of vehicle are you interested in?")
                 .PageSize(10)
                 .AddChoices(VehicleTypes)
-                .AddChoiceGroup("", "All vehicles", "Main menu")); 
+                .AddChoiceGroup("", "All Vehicles", "Main Menu")); 
 
         switch (input)
         {
@@ -123,10 +123,10 @@ public class Menu
             case "Boats":
                 _type = typeof(Boat);
                 break;
-            case "All vehicles":
+            case "All Vehicles":
                 VehiclesMenu(Manager.GetVehicles());
                 break;
-            case "Main menu":
+            case "Main Menu":
                 MainMenu();
                 break;
         }
@@ -140,7 +140,7 @@ public class Menu
                 .Title(vehicle.DisplayAttributes())
                 .PageSize(10)
                 .MoreChoicesText("[grey](Move up and down to reveal more vehicles)[/]")
-                .AddChoiceGroup("", "Buy this vehicle", "Reserve this vehicle", "Main menu"));
+                .AddChoiceGroup("", "Buy this vehicle", "Reserve this vehicle", "Main Menu"));
         
         switch (choice)
         {
@@ -152,7 +152,7 @@ public class Menu
                 Manager.ReserveVehicle(vehicle);
                 Console.WriteLine("\nYour vehicle has been reserved.");
                 break;
-            case "Main menu":
+            case "Main Menu":
                 MainMenu();
                 break;
         }
