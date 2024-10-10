@@ -78,7 +78,7 @@ public abstract class Manager
         
     }
     
-    // Returns the dictionary of reserved vehicles, optionally filtered by type.
+    // Returns the dictionary of reserved vehicles.
     public static Dictionary<int, Vehicle> GetReservedVehicles()
     {
         return _reservedVehicles;
@@ -99,13 +99,13 @@ public abstract class Manager
     }
     
     // Sells a vehicle, removes it from the vehicle list, and logs the sale.
-    public static void SellVehicle(Vehicle vehicle, int price)
+    public static void SellVehicle(Vehicle vehicle)
     {
         DateTime dateAdded = _dateAddedToStock[vehicle.VehicleId];
         _dateAddedToStock.Remove(vehicle.VehicleId);
 
         // Create a sale record and add it to the sale records list.
-        SaleRecord salerecord = new SaleRecord(vehicle, price, dateAdded);
+        SaleRecord salerecord = new SaleRecord(vehicle, vehicle.Price, dateAdded);
         _SaleRecords.Add(salerecord);
 
         // Remove the vehicle from the vehicles list.

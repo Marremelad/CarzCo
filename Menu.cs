@@ -44,10 +44,10 @@ public class Menu
         switch (choice)
         {
             case "All Vehicles":
-                VehiclesMenu(Manager.GetVehicles(_type));
+                VehiclesMenu(Manager.GetVehicles());
                 break;
             case "Reserved Vehicles":
-                ReservedVehiclesMenu(Manager.GetReservedVehicles(_type));
+                ReservedVehiclesMenu(Manager.GetReservedVehicles());
                 break;
             case "Filter Vehicles":
                 VehicleTypeMenu();
@@ -144,7 +144,7 @@ public class Menu
         switch (choice)
         {
             case "Buy this vehicle":
-                Manager.SellVehicle(vehicle, 500);
+                Manager.SellVehicle(vehicle);
                 Console.WriteLine("\nThank you for visiting Carz Co. Have a nice ride.");
                 break;
             case "Reserve this vehicle":
