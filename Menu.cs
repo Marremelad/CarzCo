@@ -133,28 +133,29 @@ public class Menu
 
             switch (input)
             {
-                case "All types":
-                    _type = null;
-                    break;
-
                 case "Cars":
                     _type = typeof(Car);
+                    VehiclesMenu(Manager.GetVehicles(_type));
                     break;
 
                 case "Motorcycles":
                     _type = typeof(Motorcycle);
+                    VehiclesMenu(Manager.GetVehicles(_type));
                     break;
 
                 case "Trucks":
                     _type = typeof(Truck);
+                    VehiclesMenu(Manager.GetVehicles(_type));
                     break;
 
                 case "Buses":
                     _type = typeof(Bus);
+                    VehiclesMenu(Manager.GetVehicles(_type));
                     break;
 
                 case "Boats":
                     _type = typeof(Boat);
+                    VehiclesMenu(Manager.GetVehicles(_type));
                     break;
 
                 case "Main menu":
