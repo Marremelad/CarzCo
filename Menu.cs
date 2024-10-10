@@ -64,7 +64,7 @@ public class Menu
                 .PageSize(10)
                 .MoreChoicesText("[blue](Move up and down to reveal more options)[/]")
                 .AddChoices(vehicles)
-                .AddChoiceGroup("", "Main menu", "Filter vehicles"));
+                .AddChoiceGroup("", "Main Menu", "Filter Vehicles"));
         
         switch (choice)
         {
