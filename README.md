@@ -1,7 +1,7 @@
 # Carz Co 🚘
 
 ## Description
-This is a group project made by me and my [classmate](https://github.com/Anton-Dahlstrom). The application features simple car dealership in the console.
+This is a group project made by me and my [classmate](https://github.com/Anton-Dahlstrom). The application features a simple car dealership in the console.
 
 ### Features
 * See all vehicles in the dealership.
