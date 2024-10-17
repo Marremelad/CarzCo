@@ -25,7 +25,7 @@ Else, do the following.
 * Navigate to the directory where you keep your repositories.
 * Run the following command
 ```console
-git clone https://github.com/Marremelad/ChessBoard.git        
+git clone https://github.com/Marremelad/CarzCo        
 ```
 * Navigate into the directory that holds the project and run the following command.
 ```console
